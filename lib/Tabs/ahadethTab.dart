@@ -99,4 +99,23 @@ class _AhadethTabState extends State<AhadethTab> {
     }
     setState(() {});
   }
+
+    // rootBundle.loadString('key').then((value) {
+    //   List<String> ahadethList = value.split("#");
+    //     for (int i = 0; i < ahadethList.length; i++) {
+    //       int listIndexFirstLine = ahadethList[i].trim().indexOf('\n');
+    //       String title = ahadethList[i].trim().substring(
+    //             0,
+    //             listIndexFirstLine,
+    //           );
+    //       String content = ahadethList[i].trim().substring(
+    //             listIndexFirstLine + 1,
+    //           );
+    //       print(content);
+    //       HadethModel hadethModel = HadethModel(title, content);
+    //       allAhadethList.add(hadethModel);
+    //     }
+    //     setState(() {});
+    // }
+
 }
