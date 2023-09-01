@@ -64,20 +64,22 @@ class _SuraDetailsState extends State<SuraDetails> {
                 children: [
                   Row(
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                        child: IconButton(
-                            onPressed: (){},
-                            icon: const Icon(
-                              Icons.play_circle,color: Colors.black,
-                            ),
-                          iconSize: 30,
-                            ),
-                      ),
-                      Text(
-                        "سورة ${args.name}",
-                        style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                          fontWeight: FontWeight.bold,
+                      IconButton(
+                          onPressed: (){},
+                          icon: const Icon(
+                            Icons.play_circle,color: Colors.black,
+                          ),
+                        iconSize: 30,
+                          ),
+                      Expanded(
+                        child: Text(
+                          "سورة ${args.name}",
+                          style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                            fontWeight: FontWeight.bold,
+                          ),
+                          textAlign: TextAlign.center,
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 2,
                         ),
                       ),
                     ],

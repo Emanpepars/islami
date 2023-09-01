@@ -41,7 +41,7 @@ class _HomeScreenState extends State<HomeScreen> {
               index = value;
               setState(() {});
             },
-            backgroundColor: Theme.of(context).primaryColor,
+            //backgroundColor: Theme.of(context).primaryColor,
             items: [
               BottomNavigationBarItem(
                 icon: const ImageIcon(
