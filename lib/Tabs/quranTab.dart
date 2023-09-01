@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../SuraDetailsModel.dart';
+import '../Models/SuraDetailsModel.dart';
 import '../suraDetails.dart';
 
 
@@ -135,7 +135,7 @@ class QuranTab extends StatelessWidget {
             ),
             Divider(
               thickness: 1,
-              color: Theme.of(context).primaryColor,
+              color: Theme.of(context).cardColor,
             ),
             Text(
               'اسم السورة',
@@ -143,7 +143,7 @@ class QuranTab extends StatelessWidget {
             ),
             Divider(
               thickness: 1,
-              color: Theme.of(context).primaryColor,
+              color: Theme.of(context).cardColor,
             ),
             Expanded(
               child: ListView.builder(
