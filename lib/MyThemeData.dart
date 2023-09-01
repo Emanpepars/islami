@@ -1,18 +1,16 @@
-
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class MyThemeData{
-
+class MyThemeData {
   //اكتر لون بيتكرر ف الاسكرين
   static const Color lightColor = Color(0xFFB7935F);
   static const Color darkColor = Color(0xFF141A2E);
   static const Color yellowColor = Color(0xFFFACC1D);
   static ThemeData lightTheme = ThemeData(
-    scaffoldBackgroundColor: Colors.transparent,
-    primaryColor:  lightColor,
+      scaffoldBackgroundColor: Colors.transparent,
+      primaryColor: lightColor,
       cardColor: lightColor,
-      textTheme:  TextTheme(
+      textTheme: TextTheme(
         bodyLarge: GoogleFonts.elMessiri(
           fontSize: 30,
           fontWeight: FontWeight.bold,
@@ -33,19 +31,18 @@ class MyThemeData{
         centerTitle: true,
       ),
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-      backgroundColor: lightColor,
-      type: BottomNavigationBarType.shifting,
-      selectedItemColor: Colors.black,
-      unselectedItemColor: Colors.white,
-      selectedLabelStyle: TextStyle(color: Colors.black),
-      unselectedLabelStyle: TextStyle(color: Colors.white),
-    )
-  );
+        backgroundColor: lightColor,
+        type: BottomNavigationBarType.shifting,
+        selectedItemColor: Colors.black,
+        unselectedItemColor: Colors.white,
+        selectedLabelStyle: TextStyle(color: Colors.black),
+        unselectedLabelStyle: TextStyle(color: Colors.white),
+      ));
   static ThemeData darkTheme = ThemeData(
       scaffoldBackgroundColor: Colors.transparent,
-      primaryColor:  darkColor,
+      primaryColor: darkColor,
       cardColor: yellowColor,
-      textTheme:  TextTheme(
+      textTheme: TextTheme(
         bodyLarge: GoogleFonts.elMessiri(
           fontSize: 30,
           fontWeight: FontWeight.bold,
@@ -72,6 +69,5 @@ class MyThemeData{
         unselectedItemColor: Colors.white,
         selectedLabelStyle: TextStyle(color: Colors.black),
         unselectedLabelStyle: TextStyle(color: Colors.white),
-      )
-  );
+      ));
 }

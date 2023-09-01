@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../SuraDetailsModel.dart';
+import '../Models/SuraDetailsModel.dart';
 import '../suraDetails.dart';
 
 
@@ -171,7 +171,7 @@ class QuranTab extends StatelessWidget {
                 },
                 itemCount: suraName.length,
               ),
-            )
+            ),
           ],
         ),
       ),
