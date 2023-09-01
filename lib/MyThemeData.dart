@@ -8,8 +8,26 @@ class MyThemeData {
   static const Color yellowColor = Color(0xFFFACC1D);
   static ThemeData lightTheme = ThemeData(
       scaffoldBackgroundColor: Colors.transparent,
-      primaryColor: lightColor,
-      cardColor: lightColor,
+      colorScheme: const ColorScheme(
+          brightness: Brightness.light,
+          primary: lightColor,
+          onPrimary: Colors.white,
+          onPrimaryContainer: Colors.white,
+          onSecondaryContainer: Color(0x70FFFFFF),
+        // secondary >> num of tasbeh
+          secondary: Color(0xB8CCB17F),
+          // text in page details
+          onSecondary: Colors.black,
+          error: Colors.red,
+          onError: Colors.transparent,
+          // background >> tasbeh
+          background: lightColor,
+          onBackground: Colors.white,
+        // surface >> divider color
+        surface: lightColor,
+        // onSurface >> divider, icon  color in page details
+        onSurface: Colors.black,
+      ),
       textTheme: TextTheme(
         bodyLarge: GoogleFonts.elMessiri(
           fontSize: 30,
@@ -40,8 +58,24 @@ class MyThemeData {
       ));
   static ThemeData darkTheme = ThemeData(
       scaffoldBackgroundColor: Colors.transparent,
-      primaryColor: darkColor,
-      cardColor: yellowColor,
+      colorScheme: const ColorScheme(
+        brightness: Brightness.dark,
+        primary: darkColor,
+        onPrimary: Colors.black,
+        onPrimaryContainer: darkColor,
+        onSecondaryContainer: Color(0x8E141A2E),
+        // secondary >> num of tasbeh
+        secondary: darkColor,
+        onSecondary: yellowColor,
+        error: Colors.red,
+        onError: Colors.transparent,
+        // background >> tasbeh
+        background: yellowColor,
+        onBackground: Colors.black,
+        // surface >> divider color
+        surface: yellowColor,
+        onSurface: yellowColor,
+      ),
       textTheme: TextTheme(
         bodyLarge: GoogleFonts.elMessiri(
           fontSize: 30,

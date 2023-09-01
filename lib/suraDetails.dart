@@ -23,13 +23,19 @@ class _SuraDetailsState extends State<SuraDetails> {
     }
     return Container(
       width: double.infinity,
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         image: DecorationImage(
-            image: AssetImage('assets/images/background.png'),
+            image: AssetImage(
+                Theme.of(context).colorScheme.brightness == Brightness.light?
+                'assets/images/background.png':
+                    "assets/images/dark_background.png",
+            ),
             fit: BoxFit.fill),
       ),
       child: Scaffold(
           appBar: AppBar(
+            toolbarHeight: 65,
+
             title: Text(
               'إسلامي',
               style: Theme.of(context).textTheme.bodyLarge,
@@ -50,12 +56,12 @@ class _SuraDetailsState extends State<SuraDetails> {
               margin: const EdgeInsets.all(30),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20) ,
-                gradient: const LinearGradient(
+                gradient:  LinearGradient(
                   begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
                     colors: [
-                      Color(0x71FFFFFF),
-                      Colors.white,
+                      Theme.of(context).colorScheme.onSecondaryContainer,
+                      Theme.of(context).colorScheme.onPrimaryContainer,
                     ]
                 ),
               ),
@@ -66,8 +72,8 @@ class _SuraDetailsState extends State<SuraDetails> {
                     children: [
                       IconButton(
                           onPressed: (){},
-                          icon: const Icon(
-                            Icons.play_circle,color: Colors.black,
+                          icon: Icon(
+                            Icons.play_circle,color: Theme.of(context).colorScheme.onSurface,
                           ),
                         iconSize: 30,
                           ),
@@ -76,6 +82,7 @@ class _SuraDetailsState extends State<SuraDetails> {
                           "سورة ${args.name}",
                           style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                             fontWeight: FontWeight.bold,
+                            color: Theme.of(context).colorScheme.onSecondary,
                           ),
                           textAlign: TextAlign.center,
                           overflow: TextOverflow.ellipsis,
@@ -87,7 +94,7 @@ class _SuraDetailsState extends State<SuraDetails> {
                   Divider(
                     height: 1,
                     thickness: 1,
-                    color: Theme.of(context).primaryColor,
+                    color: Theme.of(context).colorScheme.onSurface,
                     endIndent: 10,
                     indent: 10,
                   ),
@@ -103,7 +110,9 @@ class _SuraDetailsState extends State<SuraDetails> {
                               style: Theme
                                   .of(context)
                                   .textTheme
-                                  .bodyMedium,
+                                  .bodyMedium?.copyWith(
+                                color: Theme.of(context).colorScheme.onSecondary,
+                              ),
                             ),
                           ],
                         );

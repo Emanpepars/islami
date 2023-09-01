@@ -17,13 +17,18 @@ class _HadethDetailsState extends State<HadethDetails> {
     var args = ModalRoute.of(context)?.settings.arguments as HadethModel;
     return Container(
       width: double.infinity,
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         image: DecorationImage(
-            image: AssetImage('assets/images/background.png'),
+            image: AssetImage(
+              Theme.of(context).colorScheme.brightness == Brightness.light?
+                'assets/images/background.png':
+                  "assets/images/dark_background.png",
+            ),
             fit: BoxFit.fill),
       ),
       child: Scaffold(
           appBar: AppBar(
+            toolbarHeight: 65,
             title: Text(
               'إسلامي',
               style: Theme.of(context).textTheme.bodyLarge,
@@ -49,12 +54,12 @@ class _HadethDetailsState extends State<HadethDetails> {
               margin: const EdgeInsets.all(30),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
-                gradient: const LinearGradient(
+                gradient: LinearGradient(
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
                     colors: [
-                      Color(0x71FFFFFF),
-                      Colors.white,
+                      Theme.of(context).colorScheme.onSecondaryContainer,
+                      Theme.of(context).colorScheme.onPrimaryContainer,
                     ]),
               ),
               child: Column(
@@ -66,13 +71,14 @@ class _HadethDetailsState extends State<HadethDetails> {
                     args.title,
                     style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                       fontWeight: FontWeight.bold,
+                      color: Theme.of(context).colorScheme.onSecondary,
                     ),
                     textAlign: TextAlign.center,
                   ),
                   Divider(
                     height: 1,
                     thickness: 1,
-                    color: Theme.of(context).primaryColor,
+                    color: Theme.of(context).colorScheme.onSurface,
                     endIndent: 10,
                     indent: 10,
                   ),
@@ -86,7 +92,9 @@ class _HadethDetailsState extends State<HadethDetails> {
                           ),
                           Text(
                             args.content,
-                            style: Theme.of(context).textTheme.bodyMedium,
+                            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                              color: Theme.of(context).colorScheme.onSecondary,
+                            ),
                           ),
                         ],
                       ),

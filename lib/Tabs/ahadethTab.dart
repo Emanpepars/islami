@@ -26,11 +26,11 @@ class _AhadethTabState extends State<AhadethTab> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const Image(
-              image: AssetImage("assets/images/hadeth_img.png"),
+              image: AssetImage("assets/images/hadeth_img.png" ,),
             ),
             Divider(
               thickness: 1,
-              color: Theme.of(context).cardColor,
+              color: Theme.of(context).colorScheme.surface,
             ),
             Text(
               'الأحاديث',
@@ -38,7 +38,7 @@ class _AhadethTabState extends State<AhadethTab> {
             ),
             Divider(
               thickness: 1,
-              color: Theme.of(context).cardColor,
+              color: Theme.of(context).colorScheme.surface,
             ),
             Expanded(
               child: ListView.separated(
@@ -93,7 +93,7 @@ class _AhadethTabState extends State<AhadethTab> {
       String content = ahadethList[i].trim().substring(
             listIndexFirstLine + 1,
           );
-      print(content);
+      // print(content);
       HadethModel hadethModel = HadethModel(title, content);
       allAhadethList.add(hadethModel);
     }

@@ -20,16 +20,18 @@ class _HomeScreenState extends State<HomeScreen> {
       textDirection: TextDirection.rtl,
       child: Container(
         width: double.infinity,
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           image: DecorationImage(
             image: AssetImage(
-              'assets/images/background.png',
+              Theme.of(context).colorScheme.brightness == Brightness.light?
+              'assets/images/background.png': 'assets/images/dark_background.png',
             ),
             fit: BoxFit.fill,
           ),
         ),
         child: Scaffold(
           appBar: AppBar(
+            toolbarHeight: 65,
             title: Text(
               'إسلامي',
               style: Theme.of(context).textTheme.bodyLarge,
@@ -48,7 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   AssetImage('assets/images/moshaf.png'),
                 ),
                 label: 'القرآن',
-                backgroundColor: Theme.of(context).primaryColor,
+                backgroundColor: Theme.of(context).colorScheme.primary,
 
               ),
               BottomNavigationBarItem(
@@ -56,21 +58,21 @@ class _HomeScreenState extends State<HomeScreen> {
                   AssetImage('assets/images/ahadeth.png'),
                 ),
                 label: 'الأحاديث',
-                backgroundColor: Theme.of(context).primaryColor,
+                backgroundColor: Theme.of(context).colorScheme.primary,
               ),
               BottomNavigationBarItem(
                 icon: const ImageIcon(
                   AssetImage('assets/images/sebha.png'),
                 ),
-                label: 'التسبيح',
-                backgroundColor: Theme.of(context).primaryColor,
+                label: 'السبحة',
+                backgroundColor: Theme.of(context).colorScheme.primary,
               ),
               BottomNavigationBarItem(
                 icon: const ImageIcon(
                   AssetImage('assets/images/radio.png'),
                 ),
                 label: 'الراديو',
-                backgroundColor: Theme.of(context).primaryColor,
+                backgroundColor: Theme.of(context).colorScheme.primary,
               ),
             ],
           ),

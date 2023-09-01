@@ -135,7 +135,7 @@ class QuranTab extends StatelessWidget {
             ),
             Divider(
               thickness: 1,
-              color: Theme.of(context).cardColor,
+              color: Theme.of(context).colorScheme.surface,
             ),
             Text(
               'اسم السورة',
@@ -143,7 +143,7 @@ class QuranTab extends StatelessWidget {
             ),
             Divider(
               thickness: 1,
-              color: Theme.of(context).cardColor,
+              color: Theme.of(context).colorScheme.surface,
             ),
             Expanded(
               child: ListView.builder(
