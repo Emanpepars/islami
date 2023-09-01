@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../Models/SuraDetailsModel.dart';
+import '../SuraDetailsModel.dart';
 import '../suraDetails.dart';
 
 

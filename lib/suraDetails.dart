@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'Models/SuraDetailsModel.dart';
+import 'SuraDetailsModel.dart';
 import 'home.dart';
 
 class SuraDetails extends StatefulWidget {
