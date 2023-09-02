@@ -5,6 +5,8 @@ import 'package:provider/provider.dart';
 import 'MyThemeData.dart';
 import 'Provider/mainProvider.dart';
 import 'home.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 void main() {
   runApp(
@@ -28,10 +30,21 @@ class MyApp extends StatelessWidget {
         darkTheme: MyThemeData.darkTheme,
         themeMode: provider.themeMode,
         initialRoute: HomeScreen.routeName,
+        localizationsDelegates: const [
+          AppLocalizations.delegate, // Add this line
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
+        supportedLocales: const [
+          Locale('en'), // English
+          Locale('ar'), // arabic
+        ],
+        locale: Locale(provider.language),
         routes: {
           HomeScreen.routeName: (c) => HomeScreen(),
-          SuraDetails.routeName: (c) => SuraDetails(),
-          HadethDetails.routeName: (c) => HadethDetails(),
+          SuraDetails.routeName: (c) => const SuraDetails(),
+          HadethDetails.routeName: (c) => const HadethDetails(),
         });
   }
 }

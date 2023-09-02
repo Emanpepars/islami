@@ -1,10 +1,9 @@
 import 'dart:core';
-
 import 'package:flutter/material.dart';
 import 'package:islami/Provider/mainProvider.dart';
 import 'package:provider/provider.dart';
 
-class ShowModalBottom extends StatelessWidget {
+class ShowModalBottomThemeLanguage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
@@ -16,16 +15,16 @@ class ShowModalBottom extends StatelessWidget {
         children: [
           InkWell(
             onTap: (){
-              provider.changeTheme(ThemeMode.light);
+              provider.changeLanguage("en");
             },
             child: Row(
               children: [
                 Text(
-                  'Light',
+                  'English',
                   style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                        color:  isLight ? Theme.of(context).colorScheme.primary : Colors.white,
+                    color:  isLight ? Theme.of(context).colorScheme.primary : Colors.black,
                     fontWeight: FontWeight.bold,
-                      ),
+                  ),
                 ),
                 const Spacer(),
                 Icon(
@@ -37,12 +36,12 @@ class ShowModalBottom extends StatelessWidget {
           ),
           InkWell(
             onTap: (){
-              provider.changeTheme(ThemeMode.dark);
+              provider.changeLanguage("ar");
             },
             child: Row(
               children: [
                 Text(
-                  "Dark",
+                  "Arabic",
                   style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                     color: isLight ? Colors.black : Theme.of(context).colorScheme.primary,
                     fontWeight: FontWeight.bold,
@@ -50,7 +49,7 @@ class ShowModalBottom extends StatelessWidget {
                 ),
                 const Spacer(),
                 Icon(
-                    Icons.done,
+                  Icons.done,
                   color: isLight ? Colors.black : Theme.of(context).colorScheme.primary,
                 ),
               ],

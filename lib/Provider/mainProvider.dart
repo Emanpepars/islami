@@ -3,9 +3,16 @@ import 'package:flutter/material.dart';
 class MainProvider extends ChangeNotifier{
 
   ThemeMode themeMode = ThemeMode.light;
-
- void changeTheme(ThemeMode mode){
-   themeMode = mode;
-   notifyListeners();
+  String language = "en";
+  void changeTheme(ThemeMode mode){
+    themeMode = mode;
+    notifyListeners();
   }
+  void changeLanguage(String lang){
+    language = lang;
+    notifyListeners();
+  }
+
+
 }
+

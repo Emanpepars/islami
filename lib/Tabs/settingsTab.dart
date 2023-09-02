@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:islami/Reusable/showLanguageBottom.dart';
 
-import '../Reusable/ShowModalBottom.dart';
+import '../Reusable/showThemeBottom.dart';
 
 class SettingsTab extends StatefulWidget {
   const SettingsTab({Key? key}) : super(key: key);
@@ -23,7 +24,7 @@ class _SettingsTabState extends State<SettingsTab> {
           ),
           InkWell(
             onTap: () {
-              showModalBottom_Themes();
+              showModalBottomThemes();
             },
             child: Container(
               width: double.infinity,
@@ -32,11 +33,11 @@ class _SettingsTabState extends State<SettingsTab> {
                   width: 1,
                   color: Theme.of(context).colorScheme.background,
                 ),
-                borderRadius: BorderRadius.all(
+                borderRadius: const BorderRadius.all(
                   Radius.circular(15),
                 ),
               ),
-              padding: EdgeInsets.symmetric(horizontal: 10),
+              padding: const EdgeInsets.symmetric(horizontal: 10),
               child: Text(
                 'Light',
                 textAlign: TextAlign.end,
@@ -45,7 +46,7 @@ class _SettingsTabState extends State<SettingsTab> {
               ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           Text(
@@ -54,6 +55,7 @@ class _SettingsTabState extends State<SettingsTab> {
           ),
           InkWell(
             onTap: () {
+              showModalBottomLanguage();
             },
             child: Container(
               width: double.infinity,
@@ -62,11 +64,11 @@ class _SettingsTabState extends State<SettingsTab> {
                   width: 1,
                   color: Theme.of(context).colorScheme.background,
                 ),
-                borderRadius: BorderRadius.all(
+                borderRadius: const BorderRadius.all(
                   Radius.circular(15),
                 ),
               ),
-              padding: EdgeInsets.symmetric(horizontal: 10),
+              padding: const EdgeInsets.symmetric(horizontal: 10),
               child: Text(
                 'عربي',
                 textAlign: TextAlign.start,
@@ -80,10 +82,15 @@ class _SettingsTabState extends State<SettingsTab> {
     );
   }
 
-  void showModalBottom_Themes() {
+  void showModalBottomThemes() {
     showModalBottomSheet(
       context: context,
-      builder: (context) => ShowModalBottom(),
+      builder: (context) => ShowModalBottomTheme(),
+    );
+  }void showModalBottomLanguage() {
+    showModalBottomSheet(
+      context: context,
+      builder: (context) => ShowModalBottomThemeLanguage(),
     );
   }
 }
