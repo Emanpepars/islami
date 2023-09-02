@@ -39,7 +39,7 @@ class MyThemeData {
           color: Colors.black,
         ),
         bodySmall: GoogleFonts.elMessiri(
-          fontSize: 25,
+          fontSize: 20,
           color: Colors.black,
         ),
       ),
@@ -87,7 +87,7 @@ class MyThemeData {
           color: Colors.white,
         ),
         bodySmall: GoogleFonts.elMessiri(
-          fontSize: 25,
+          fontSize: 20,
           color: Colors.white,
         ),
       ),

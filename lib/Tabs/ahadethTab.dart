@@ -41,7 +41,7 @@ class _AhadethTabState extends State<AhadethTab> {
               color: Theme.of(context).colorScheme.surface,
             ),
             Expanded(
-              child: ListView.separated(
+              child: ListView.builder(
                 itemBuilder: (context, index) {
                   return Center(
                     child: InkWell(
@@ -68,11 +68,6 @@ class _AhadethTabState extends State<AhadethTab> {
                   );
                 },
                 itemCount: allAhadethList.length,
-                separatorBuilder: (BuildContext context, int index) {
-                  return SizedBox(
-                    height: 5,
-                  );
-                },
               ),
             ),
           ],

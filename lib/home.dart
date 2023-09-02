@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:islami/Tabs/settingsTab.dart';
 import 'Tabs/ahadethTab.dart';
 import 'Tabs/quranTab.dart';
 import 'Tabs/radioTab.dart';
@@ -13,7 +14,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int index = 0;
-  List<Widget> tabsList = [QuranTab(),AhadethTab(),SabhaTab(),RadioTab(),];
+  List<Widget> tabsList = [QuranTab(),AhadethTab(),SabhaTab(),const RadioTab(),const SettingsTab(),];
   @override
   Widget build(BuildContext context) {
     return Directionality(
@@ -72,6 +73,11 @@ class _HomeScreenState extends State<HomeScreen> {
                   AssetImage('assets/images/radio.png'),
                 ),
                 label: 'الراديو',
+                backgroundColor: Theme.of(context).colorScheme.primary,
+              ),
+              BottomNavigationBarItem(
+                icon: const Icon(Icons.settings),
+                label: 'settings',
                 backgroundColor: Theme.of(context).colorScheme.primary,
               ),
             ],
