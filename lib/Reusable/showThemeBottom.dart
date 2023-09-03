@@ -1,5 +1,5 @@
 import 'dart:core';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:islami/Provider/mainProvider.dart';
 import 'package:provider/provider.dart';
@@ -17,20 +17,21 @@ class ShowModalBottomTheme extends StatelessWidget {
           InkWell(
             onTap: (){
               provider.changeTheme(ThemeMode.light);
+              Navigator.pop(context);
             },
             child: Row(
               children: [
                 Text(
-                  'Light',
+                  AppLocalizations.of(context)!.light,
                   style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                        color:  isLight ? Theme.of(context).colorScheme.primary : Colors.black,
-                    fontWeight: FontWeight.bold,
+                        color:  isLight ? Theme.of(context).colorScheme.primary : Colors.grey,
+                    fontWeight: isLight ?FontWeight.bold : FontWeight.normal,
                       ),
                 ),
                 const Spacer(),
                 Icon(
                   Icons.done,
-                  color: isLight ? Theme.of(context).colorScheme.primary : Colors.black,
+                  color: isLight ? Theme.of(context).colorScheme.primary : Colors.grey,
                 ),
               ],
             ),
@@ -38,20 +39,21 @@ class ShowModalBottomTheme extends StatelessWidget {
           InkWell(
             onTap: (){
               provider.changeTheme(ThemeMode.dark);
+              Navigator.pop(context);
             },
             child: Row(
               children: [
                 Text(
-                  "Dark",
+                  AppLocalizations.of(context)!.dark,
                   style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                    color: isLight ? Colors.black : Theme.of(context).colorScheme.primary,
-                    fontWeight: FontWeight.bold,
+                    color: isLight ? Colors.grey : Theme.of(context).colorScheme.onSecondary,
+                    fontWeight: isLight ?FontWeight.normal :FontWeight.bold,
                   ),
                 ),
                 const Spacer(),
                 Icon(
                     Icons.done,
-                  color: isLight ? Colors.black : Theme.of(context).colorScheme.primary,
+                  color: isLight ? Colors.grey : Theme.of(context).colorScheme.onSecondary,
                 ),
               ],
             ),

@@ -1,28 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:islami/Models/hadethModel.dart';
-
-import 'home.dart';
-
-class HadethDetails extends StatefulWidget {
+import 'package:islami/Provider/mainProvider.dart';
+import 'package:provider/provider.dart';
+class HadethDetails extends StatelessWidget {
   const HadethDetails({Key? key}) : super(key: key);
   static const String routeName = 'HadethDetails';
 
   @override
-  State<HadethDetails> createState() => _HadethDetailsState();
-}
-
-class _HadethDetailsState extends State<HadethDetails> {
-  @override
   Widget build(BuildContext context) {
     var args = ModalRoute.of(context)?.settings.arguments as HadethModel;
+    var mainProvider = Provider.of<MainProvider>(context);
     return Container(
       width: double.infinity,
       decoration: BoxDecoration(
         image: DecorationImage(
             image: AssetImage(
-              Theme.of(context).colorScheme.brightness == Brightness.light?
-                'assets/images/background.png':
-                  "assets/images/dark_background.png",
+              Theme.of(context).colorScheme.brightness == Brightness.light
+                  ? 'assets/images/background.png'
+                  : "assets/images/dark_background.png",
             ),
             fit: BoxFit.fill),
       ),
@@ -35,10 +30,10 @@ class _HadethDetailsState extends State<HadethDetails> {
             ),
             leading: IconButton(
               onPressed: () {
-                Navigator.popAndPushNamed(context, HomeScreen.routeName);
+                Navigator.pop(context);
               },
               icon: const Icon(Icons.arrow_back),
-              color: Colors.black,
+              color: mainProvider.themeMode == ThemeMode.light ? Colors.black : Colors.white,
             ),
           ),
           body: Directionality(
@@ -66,13 +61,15 @@ class _HadethDetailsState extends State<HadethDetails> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SizedBox(height: 10,),
+                  SizedBox(
+                    height: 10,
+                  ),
                   Text(
                     args.title,
                     style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                      fontWeight: FontWeight.bold,
-                      color: Theme.of(context).colorScheme.onSecondary,
-                    ),
+                          fontWeight: FontWeight.bold,
+                          color: Theme.of(context).colorScheme.onSecondary,
+                        ),
                     textAlign: TextAlign.center,
                   ),
                   Divider(
@@ -92,9 +89,13 @@ class _HadethDetailsState extends State<HadethDetails> {
                           ),
                           Text(
                             args.content,
-                            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                              color: Theme.of(context).colorScheme.onSecondary,
-                            ),
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodyMedium
+                                ?.copyWith(
+                                  color:
+                                      Theme.of(context).colorScheme.onSecondary,
+                                ),
                           ),
                         ],
                       ),

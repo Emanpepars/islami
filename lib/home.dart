@@ -69,7 +69,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             BottomNavigationBarItem(
               icon: const ImageIcon(
-                AssetImage('assets/images/radio.png'),
+                AssetImage('assets/images/radioIcon.png'),
               ),
               label: AppLocalizations.of(context)!.radio,
               backgroundColor: Theme.of(context).colorScheme.primary,

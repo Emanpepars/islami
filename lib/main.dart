@@ -43,7 +43,7 @@ class MyApp extends StatelessWidget {
         locale: Locale(provider.language),
         routes: {
           HomeScreen.routeName: (c) => HomeScreen(),
-          SuraDetails.routeName: (c) => const SuraDetails(),
+          SuraDetails.routeName: (c) =>  SuraDetails(),
           HadethDetails.routeName: (c) => const HadethDetails(),
         });
   }

@@ -1,96 +1,87 @@
 import 'package:flutter/material.dart';
-import 'package:islami/Reusable/showLanguageBottom.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:islami/Provider/mainProvider.dart';
+import 'package:provider/provider.dart';
+import '../Provider/settingsTabProvider.dart';
 
-import '../Reusable/showThemeBottom.dart';
-
-class SettingsTab extends StatefulWidget {
+class SettingsTab extends StatelessWidget {
   const SettingsTab({Key? key}) : super(key: key);
 
   @override
-  State<SettingsTab> createState() => _SettingsTabState();
-}
-
-class _SettingsTabState extends State<SettingsTab> {
-  @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(10.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.end,
-        children: [
-           Text(
-            'Theming',
-            style: Theme.of(context).textTheme.bodyMedium,
-          ),
-          InkWell(
-            onTap: () {
-              showModalBottomThemes();
-            },
-            child: Container(
-              width: double.infinity,
-              decoration: BoxDecoration(
-                border: Border.all(
-                  width: 1,
-                  color: Theme.of(context).colorScheme.background,
-                ),
-                borderRadius: const BorderRadius.all(
-                  Radius.circular(15),
-                ),
-              ),
-              padding: const EdgeInsets.symmetric(horizontal: 10),
-              child: Text(
-                'Light',
-                textAlign: TextAlign.end,
-                style: Theme.of(context).textTheme.bodySmall,
+    return ChangeNotifierProvider(
+      create: (BuildContext context) => SettingTabProvider(),
+      builder: (context, child) {
+        var mainProvider = Provider.of<MainProvider>(context);
+        var settingProvider = Provider.of<SettingTabProvider>(context);
 
+        return Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                AppLocalizations.of(context)!.theming,
+                style: Theme.of(context).textTheme.bodyMedium,
               ),
-            ),
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          Text(
-            'Language',
-            style: Theme.of(context).textTheme.bodyMedium,
-          ),
-          InkWell(
-            onTap: () {
-              showModalBottomLanguage();
-            },
-            child: Container(
-              width: double.infinity,
-              decoration: BoxDecoration(
-                border: Border.all(
-                  width: 1,
-                  color: Theme.of(context).colorScheme.background,
+              InkWell(
+                onTap: () {
+                  settingProvider.showModalBottomThemes(context);
+                },
+                child: Container(
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      width: 1,
+                      color: Theme.of(context).colorScheme.background,
+                    ),
+                    borderRadius: const BorderRadius.all(
+                      Radius.circular(15),
+                    ),
+                  ),
+                  padding: const EdgeInsets.all(10),
+                  child: Text(
+                    mainProvider.themeMode == ThemeMode.light
+                        ? AppLocalizations.of(context)!.light
+                        : AppLocalizations.of(context)!.dark,
+                    style: Theme.of(context).textTheme.bodySmall,
+                  ),
                 ),
-                borderRadius: const BorderRadius.all(
-                  Radius.circular(15),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              Text(
+                AppLocalizations.of(context)!.language,
+                style: Theme.of(context).textTheme.bodyMedium,
+              ),
+              InkWell(
+                onTap: () {
+                  settingProvider.showModalBottomLanguage(context);
+                },
+                child: Container(
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      width: 1,
+                      color: Theme.of(context).colorScheme.background,
+                    ),
+                    borderRadius: const BorderRadius.all(
+                      Radius.circular(15),
+                    ),
+                  ),
+                  padding: const EdgeInsets.all(10),
+                  child: Text(
+                    mainProvider.language == "en" ? "English" : 'عربي',
+                    textAlign: TextAlign.start,
+                    style: Theme.of(context).textTheme.bodySmall,
+                  ),
                 ),
               ),
-              padding: const EdgeInsets.symmetric(horizontal: 10),
-              child: Text(
-                'عربي',
-                textAlign: TextAlign.start,
-                style: Theme.of(context).textTheme.bodySmall,
-
-              ),
-            ),
+            ],
           ),
-        ],
-      ),
-    );
-  }
-
-  void showModalBottomThemes() {
-    showModalBottomSheet(
-      context: context,
-      builder: (context) => ShowModalBottomTheme(),
-    );
-  }void showModalBottomLanguage() {
-    showModalBottomSheet(
-      context: context,
-      builder: (context) => ShowModalBottomThemeLanguage(),
+        );
+      },
     );
   }
 }

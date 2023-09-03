@@ -121,11 +121,11 @@ class QuranTab extends StatelessWidget {
     "الفلق",
     "الناس"
   ];
+
+  QuranTab({super.key});
   @override
   Widget build(BuildContext context) {
-    return Directionality(
-      textDirection: TextDirection.rtl,
-      child: SizedBox(
+      return SizedBox(
         width: double.infinity,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -134,7 +134,7 @@ class QuranTab extends StatelessWidget {
               image: AssetImage('assets/images/contents.png'),
             ),
             Divider(
-              thickness: 1,
+              thickness: 2,
               color: Theme.of(context).colorScheme.surface,
             ),
             Text(
@@ -142,7 +142,7 @@ class QuranTab extends StatelessWidget {
               style: Theme.of(context).textTheme.bodyMedium,
             ),
             Divider(
-              thickness: 1,
+              thickness: 2,
               color: Theme.of(context).colorScheme.surface,
             ),
             Expanded(
@@ -156,7 +156,7 @@ class QuranTab extends StatelessWidget {
                       splashColor: Colors.transparent,
                       onTap: () {
                         Navigator.pushNamed(context, SuraDetails.routeName,
-                            arguments: SuraDetailsModel(suraName[index] , index),
+                          arguments: SuraDetailsModel(suraName[index] , index),
                         );
                       },
                       child: Text(
@@ -174,7 +174,7 @@ class QuranTab extends StatelessWidget {
             ),
           ],
         ),
-      ),
-    );
+      );
+
   }
 }

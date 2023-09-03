@@ -4,5 +4,12 @@
   "quran": "Quran",
   "ahadeth": "Ahadeth",
   "radio": "Radio",
-  "sebha": "Tasbeh"
+  "sebha": "Tasbeh",
+  "language": "Language",
+  "theming": "Theming",
+  "light": "Light",
+  "dark": "Dark",
+  "en": "English",
+  "ar": "Arabic"
+
 }
